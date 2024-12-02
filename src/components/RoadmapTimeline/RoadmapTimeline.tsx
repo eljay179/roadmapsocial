@@ -3,6 +3,7 @@ import { RoadmapCard } from './RoadmapCard';
 import { roadmapData } from './roadmapData';
 import { Header } from './Header';
 import { HorizontalTimeline } from './HorizontalTimeline';
+import { RoadmapItem } from './types';
 
 export const RoadmapTimeline: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -12,10 +13,17 @@ export const RoadmapTimeline: React.FC = () => {
   useEffect(() => {
     // Find the current or next upcoming roadmap item based on date
     const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentQuarter = Math.floor(currentDate.getMonth() / 3) + 1;
+    const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
+
     const initialIndex = roadmapData.findIndex(item => {
-      const [quarter, year] = item.date.split(' ')[0].split('Q');
-      const itemDate = new Date(parseInt(year), (parseInt(quarter) - 1) * 3, 1);
-      return itemDate >= currentDate;
+      if (item.date.year > currentYear) return true;
+      if (item.date.year === currentYear && item.date.quarter > currentQuarter) return true;
+      if (item.date.year === currentYear && 
+          item.date.quarter === currentQuarter && 
+          item.date.month >= currentMonth) return true;
+      return false;
     });
     
     if (initialIndex !== -1) {
@@ -56,7 +64,7 @@ export const RoadmapTimeline: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative pt-80">
+    <div className="relative pt-64">
       <Header />
       <HorizontalTimeline 
         activeIndex={activeIndex} 

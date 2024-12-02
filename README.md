@@ -102,7 +102,6 @@ src/components/RoadmapTimeline/
 ├── Header.tsx             # Title and description
 ├── HorizontalTimeline.tsx # Interactive timeline
 ├── RoadmapCard.tsx       # Individual milestone cards
-├── TimelineNode.tsx      # Timeline node indicators
 └── roadmapData.tsx       # Roadmap content
 ```
 
