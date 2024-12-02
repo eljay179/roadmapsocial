@@ -23,8 +23,8 @@ A beautiful, interactive roadmap component built with React, TypeScript, and Tai
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/interactive-roadmap.git
-cd interactive-roadmap
+git clone https://github.com/aytch4k/roadmap.git
+cd roadmap
 ```
 
 2. Install dependencies:
@@ -47,10 +47,14 @@ Edit `src/components/RoadmapTimeline/roadmapData.tsx` to update the roadmap item
 export const roadmapData = [
   {
     title: 'Your Milestone',
-    date: 'Q1 2024',  // Format: 'Q[1-4] YYYY'
     description: 'Description of your milestone',
-    icon: <YourIcon className="w-6 h-6" />,
+    icon: <Code className="w-6 h-6" />,
     status: 'not-started' | 'in-progress' | 'completed'
+    date: {
+      year: 2024,
+      quarter: 4,
+      month: 'November'
+    }
   },
   // Add more items...
 ];
