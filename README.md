@@ -2,7 +2,7 @@
 
 A beautiful, interactive roadmap component built with React, TypeScript, and Tailwind CSS. Features smooth scrolling animations, timeline navigation, and responsive design.
 
-![Roadmap Preview](https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426&h=600)
+![Roadmap Preview](https://github.com/aytch4k/roadmap/blob/main/demo/completed.PNG)
 
 ## Features
 
